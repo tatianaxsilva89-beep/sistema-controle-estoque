@@ -1,0 +1,15 @@
+<?php
+include 'conexao.php';
+
+$nome = $_POST['nome'];
+$quantidade = $_POST['quantidade'];
+$valor = $_POST['valor'];
+
+$sql = "INSERT INTO produtos (nome, quantidade, valor) VALUES ('$nome', '$quantidade', '$valor')";
+if ($conn->query($sql) === TRUE) {
+  echo "Produto cadastrado com sucesso.";
+} else {
+  echo "Erro: " . $sql . "<br>" . $conn->error;
+}
+$conn->close();
+?>
